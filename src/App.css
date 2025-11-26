@@ -1,0 +1,88 @@
+body{
+  background-color: black;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #1A4FFF;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.word {
+  margin: auto;
+  color: rgb(213, 218, 227);
+  font: 600 normal 1.5em 'tahoma';
+  /* text-shadow: 5px 2px #222324, 2px 4px #222f3d, 3px 5px #222324; */
+}
+
+@keyframes profileFade {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-profile {
+  animation: profileFade 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; 
+}
+
+.aboutpage {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+svg defs linearGradient stop {
+  stop-opacity: 1;
+}
+
+.formcard{
+   backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(26, 34, 49, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(8px);
+
+  animation: revealAnim 0.9s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+}
+
+@keyframes revealAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
