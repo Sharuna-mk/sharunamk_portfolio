@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Wordflick from './Wordflick'
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
-import resume from '../assets/SHARUNA_M_k.pdf'
+import resume from '../assets/SHARUNA_M_K.pdf'
 import profile from '../assets/profile.png'
 import About from './About';
 import Project from './Project';
