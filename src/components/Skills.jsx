@@ -34,27 +34,27 @@ function Skills() {
      
       <div className="flex-1 flex flex-col space-y-5">
         <h4 className="text-center text-xl font-semibold">Frontend Development</h4>
-        <Skillbar skill="React.js" value={95} />
-        <Skillbar skill="JavaScript (ES6+)" value={90} />
-        <Skillbar skill="Bootstrap" value={95} />
-        <Skillbar skill="Tailwind CSS" value={89} />
-        <Skillbar skill="HTML" value={98} />
-        <Skillbar skill="CSS" value={95} />
+        <Skillbar skill="React.js" value={85} />
+        <Skillbar skill="JavaScript (ES6+)" value={80} />
+        <Skillbar skill="Bootstrap" value={85} />
+        <Skillbar skill="Tailwind CSS" value={87} />
+        <Skillbar skill="HTML" value={85} />
+        <Skillbar skill="CSS" value={80} />
       </div>
 
       
       <div className="flex-1 flex flex-col space-y-5 ms-10">
         <h4 className="text-center text-xl font-semibold">Tools & Version Control</h4>
-        <Skillbar skill="Git" value={99} />
-        <Skillbar skill="GitHub" value={98} />
-        <Skillbar skill="VS Code" value={98} />
-         <Skillbar skill="npm" value={96} />
+        <Skillbar skill="Git" value={85} />
+        <Skillbar skill="GitHub" value={88} />
+        <Skillbar skill="VS Code" value={85} />
+         <Skillbar skill="npm" value={85} />
       </div>
       <div className="flex-1 flex flex-col space-y-5 ms-10">
         <h4 className="text-center text-xl font-semibold">Libraries & Tools</h4>
-        <Skillbar skill="Material UI" value={98} />
-        <Skillbar skill="React Router" value={95} />
-         <Skillbar skill="Axios" value={92} />
+        <Skillbar skill="Material UI" value={89} />
+        <Skillbar skill="React Router" value={85} />
+         <Skillbar skill="Axios" value={88} />
         <Skillbar skill="React Hook Form / Yup" value={85} />
         
       </div>
