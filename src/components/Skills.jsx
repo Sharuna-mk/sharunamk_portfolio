@@ -1,87 +1,123 @@
-import React, { useEffect, useState } from 'react'
-import Skillbar from './Skillbar'
-import Circular from './Circular'
+import React, { useState, useEffect, useRef } from 'react';
+import './Skills.css';
 
-function Skills() {
 
-  const[technical,setTechnical]=useState(true)
-  const[soft,setSoft]=useState(false)
+export default function Skills() {
 
+ const skills = [
+    {
+      name: "JavaScript",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+    },
+    {
+      name: "TypeScript",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
+    },
+    {
+      name: "React",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+    },
+    {
+      name: "Node.js",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
+    },
+    {
+      name: "Express",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
+    },
+    {
+      name: "MongoDB",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
+    },
+    {
+      name: "HTML5",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
+    },
+    {
+      name: "CSS3",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'
+    },
+    {
+      name: "Tailwind CSS",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg'
+    },
+    {
+      name: "Redux",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg'
+    },
+    {
+      name: "Git",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
+    },
+    {
+      name: "GitHub",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+    },
+    {
+      name: "Firebase",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg'
+    },
+    {
+      name: "Postman",
+      image: 'https://www.svgrepo.com/show/354202/postman-icon.svg'
+    },
+    {
+      name: "VS Code",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'
+    },
+    {
+      name: "Bootstrap",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'
+    },
+    {
+      name: "Vercel",
+      image: 'https://www.svgrepo.com/show/327408/logo-vercel.svg'
+    },
+    {
+      name: "Netlify",
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg'
+    },
+  ]
 
   return (
-    <div>
-        <h1 className="scroll-reveal mt-30 text-4xl text-center font-bold text-gradient bg-gradient-to-r from-cyan-300 via-blue-500 to-blue-700 bg-clip-text text-transparent mt-8">
-        My SKills
-      </h1>
-
-         <div className='text-white flex flex-row justify-center items-center gap-4 py-6 mt-5'>
-        <button className='w-30  border-white px-4 py-2 cursor-pointer text-md font-bold
-        hover:bg-white hover:text-black hover:border-black ' onClick={()=>{setTechnical(true)
-          setSoft(false)
-        }}
-        >Technical</button>
-        <button  className='w-30  border-white px-4 py-2 cursor-pointer text-md font-bold
-        hover:bg-white hover:text-black hover:border-black ' onClick={()=>{setSoft(true) 
-          setTechnical(false)
-        }}>Soft</button>
-        
+    <section className="skills-section" >
+      {/* header */}
+      <div className="skills-header">
+        <span className="skills-eyebrow">
+          <span className="eyebrow-dot" />
+          What I Work With
+        </span>
+        <h2 className="skills-title">
+          My <span className="skills-accent">Skills</span>
+        </h2>
       </div>
-        {technical && (
-  <div className="w-full flex flex-col items-center justify-center mt-8 text-white">
-    <h3 className="text-center text-2xl font-bold mb-6">Technical Skills</h3>
-
-    <div className="flex flex-col md:flex-row w-full max-w-7xl gap-15 mt-10">
-     
-      <div className="flex-1 flex flex-col space-y-5">
-        <h4 className="text-center text-xl font-semibold">Frontend Development</h4>
-        <Skillbar skill="React.js" value={85} />
-        <Skillbar skill="JavaScript (ES6+)" value={80} />
-        <Skillbar skill="Bootstrap" value={85} />
-        <Skillbar skill="Tailwind CSS" value={87} />
-        <Skillbar skill="HTML" value={85} />
-        <Skillbar skill="CSS" value={80} />
-      </div>
-
-      
-      <div className="flex-1 flex flex-col space-y-5 ms-10">
-        <h4 className="text-center text-xl font-semibold">Tools & Version Control</h4>
-        <Skillbar skill="Git" value={85} />
-        <Skillbar skill="GitHub" value={88} />
-        <Skillbar skill="VS Code" value={85} />
-         <Skillbar skill="npm" value={85} />
-      </div>
-      <div className="flex-1 flex flex-col space-y-5 ms-10">
-        <h4 className="text-center text-xl font-semibold">Libraries & Tools</h4>
-        <Skillbar skill="Material UI" value={89} />
-        <Skillbar skill="React Router" value={85} />
-         <Skillbar skill="Axios" value={88} />
-        <Skillbar skill="React Hook Form / Yup" value={85} />
-        
-      </div>
-    </div>
-  </div>
-)}
-
-       
-   {soft && (
-  <div className="w-full flex flex-col items-center mt-8 text-white">
-    <h3 className="text-2xl font-bold text-center mb-6">Soft Skills</h3>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-25 mt-5 w-full max-w-xl">
-      <Circular value={94} label="Adaptability" />
-      <Circular value={94} label="Communication" />
-      <Circular value={92} label="Teamwork & Collaboration" />
-      <Circular value={93} label="Creativity & Innovation" />
-      <Circular value={80} label="Time Management" />
-    </div>
-  </div>
-)}
-
-           
+       <div className="flex flex-wrap gap-15 justify-center items-center">
+        {skills.map((skill, index) => (
+          <div key={index} className=" group relative overflow-hidden
+             border border-[#1e1e1e] rounded-2xl
+              flex flex-col items-center gap-1
+              px-2 py-6 cursor-default p-4! w-28 h-28
+              transition-all duration-300 ease-out
+              hover:-translate-y-1.5 hover:scale-[1.04]
+              hover:border-[#6ee44a44] hover:bg-[#0d150a]">
+            <div 
+              >
+              <img src={skill.image} alt={skill.name} className="
+                w-9 h-9 object-contain
+                brightness-75 saturate-90
+                transition-all duration-300
+                group-hover:brightness-110 group-hover:saturate-[1.2]
+                group-hover:scale-125 group-hover:-rotate-3
+              "
+              style={{ transitionTimingFunction: 'cubic-bezier(0.34,1.56,0.64,1)' }}/>
+            </div>
+            <h6 className=" mt-2!">{skill.name}</h6>
           </div>
-       
-  
-  )
-}
+        ))}
+      </div>
 
-export default Skills
+
+
+    </section>
+  );
+}

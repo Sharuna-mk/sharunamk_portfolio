@@ -1,54 +1,56 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 
-const Wordflick = () => {
-  const words = [
-   "Web Developer",
-   "Frontend Developer"
-  ];
+const words = [
+  'MERN Stack Developer',
+  'React Developer',
+  'Node.js Developer',
+  'Full Stack Developer',
+];
 
-  const [part, setPart] = useState("");
-  const [i, setI] = useState(0);
-  const [offset, setOffset] = useState(0);
-  const [forwards, setForwards] = useState(true);
-  const [skipCount, setSkipCount] = useState(0);
-
-  const skipDelay = 15;
-  const speed = 70;
+export default function Wordflick() {
+  const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [deleting, setDeleting] = useState(false);
+  const [charIdx, setCharIdx] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const currentWord = words[i];
+    const current = words[index];
+    let timeout;
 
-      if (forwards) {
-        if (offset >= currentWord.length) {
-          setSkipCount(prev => prev + 1);
-          if (skipCount + 1 === skipDelay) {
-            setForwards(false);
-            setSkipCount(0);
-          }
-        } else {
-          setOffset(prev => prev + 1);
-        }
-      } else {
-        if (offset === 0) {
-          setForwards(true);
-          setI((prev) => (prev + 1) % words.length);
-        } else {
-          setOffset(prev => prev - 1);
-        }
-      }
+    if (!deleting && charIdx <= current.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIdx));
+        setCharIdx(c => c + 1);
+      }, 70);
+    } else if (!deleting && charIdx > current.length) {
+      timeout = setTimeout(() => setDeleting(true), 1600);
+    } else if (deleting && charIdx >= 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, charIdx));
+        setCharIdx(c => c - 1);
+      }, 40);
+    } else {
+      setDeleting(false);
+      setIndex(i => (i + 1) % words.length);
+      setCharIdx(0);
+    }
 
-      setPart(currentWord.substring(0, offset));
-    }, speed);
-
-    return () => clearInterval(interval);
-  }, [offset, forwards, skipCount, i]);
+    return () => clearTimeout(timeout);
+  }, [charIdx, deleting, index]);
 
   return (
-    <div className="word text-white text-2xl shadow">
-      {part}
-    </div>
+    <span>
+      {displayed}
+      <span style={{
+        display: 'inline-block',
+        width: '2px',
+        height: '1.1em',
+        background: '#00D9C0',
+        marginLeft: '2px',
+        verticalAlign: 'middle',
+        animation: 'blink 1s step-end infinite',
+      }} />
+      <style>{`@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }`}</style>
+    </span>
   );
-};
-
-export default Wordflick;
+}
